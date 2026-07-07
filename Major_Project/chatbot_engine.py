@@ -14,7 +14,7 @@ nltk.download('wordnet', quiet=True)
 nltk.download('punkt', quiet=True)
 
 class CineBotEngine:
-    def __init__(self, data_path='data/cornell_movie_dialogs_corpus/cornell movie-dialogs corpus'):
+    def __init__(self, data_path='data/cornell movie-dialogs corpus'):
         self.lemmatizer = WordNetLemmatizer()
         self.stop_words = set(stopwords.words('english'))
         self.vectorizer = None
@@ -57,6 +57,10 @@ class CineBotEngine:
                         if input_line and response_line:
                             self.corpus.append(self._clean_text(input_line))
                             self.responses.append(response_line)
+                            
+                            # Limit to 5000 conversations to ensure fast boot and low RAM usage on Render
+                            if len(self.corpus) >= 5000:
+                                return
 
     def _train_model(self):
         # TF-IDF Vectorization
