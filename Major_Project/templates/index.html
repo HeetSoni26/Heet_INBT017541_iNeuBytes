@@ -3,26 +3,72 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CineBot - Movie Chatbot</title>
+    <title>CineBot – Your AI Movie Companion</title>
+    <meta name="description" content="CineBot is an AI-powered movie chatbot. Get recommendations, trivia, and more!">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/static/style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="chat-container">
-        <header class="chat-header">
-            <h2>🎬 CineBot</h2>
-            <p>Your Personal Movie Companion</p>
-        </header>
-        <div class="chat-box" id="chat-box">
-            <div class="message bot-message">
-                Hello! I am CineBot. I love talking about movies. What's on your mind?
+    <!-- Animated Background -->
+    <div class="bg-orb orb-1"></div>
+    <div class="bg-orb orb-2"></div>
+    <div class="bg-orb orb-3"></div>
+
+    <div class="app-wrapper">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-logo">
+                <span class="logo-icon">🎬</span>
+                <span class="logo-text">CineBot</span>
             </div>
-        </div>
-        <div class="input-area">
-            <input type="text" id="user-input" placeholder="Type a message..." autocomplete="off" onkeypress="handleKeyPress(event)">
-            <button onclick="sendMessage()">Send</button>
-        </div>
+            <p class="sidebar-tagline">Your AI Movie Companion</p>
+            <div class="sidebar-divider"></div>
+            <p class="sidebar-label">Try asking:</p>
+            <div class="suggestions">
+                <button class="suggestion-chip" onclick="fillInput('Recommend an action movie')">🔥 Action Movie</button>
+                <button class="suggestion-chip" onclick="fillInput('Best horror movies')">👻 Horror Picks</button>
+                <button class="suggestion-chip" onclick="fillInput('Tell me a movie trivia')">🎭 Movie Trivia</button>
+                <button class="suggestion-chip" onclick="fillInput('Best sci-fi films')">🚀 Sci-Fi Films</button>
+                <button class="suggestion-chip" onclick="fillInput('Greatest films of all time')">🏆 All-Time Greats</button>
+                <button class="suggestion-chip" onclick="fillInput('Best directors ever')">🎥 Top Directors</button>
+            </div>
+            <div class="sidebar-divider"></div>
+            <div class="sidebar-footer">
+                <span>Heet Soni · INBT017541</span>
+                <span>iNeuBytes AI Internship</span>
+            </div>
+        </aside>
+
+        <!-- Main Chat -->
+        <main class="chat-main">
+            <header class="chat-header">
+                <div class="header-info">
+                    <div class="status-dot"></div>
+                    <span>CineBot is Online</span>
+                </div>
+            </header>
+
+            <div class="chat-box" id="chat-box">
+                <!-- Welcome Message -->
+                <div class="message-row bot-row">
+                    <div class="avatar bot-avatar">🎬</div>
+                    <div class="message bot-message">
+                        <p>Hey there, movie lover! 👋 I'm <strong>CineBot</strong> — your personal AI film companion.</p>
+                        <p style="margin-top:8px;">I can recommend movies by genre, share trivia, discuss directors, and more. What's on your mind? 🍿</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="input-area">
+                <input type="text" id="user-input" placeholder="Ask me anything about movies..." autocomplete="off" maxlength="300">
+                <button id="send-btn" onclick="sendMessage()" title="Send">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+                </button>
+            </div>
+        </main>
     </div>
+
     <script src="/static/script.js"></script>
 </body>
 </html>
